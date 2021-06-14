@@ -363,9 +363,13 @@ void Group::onDraw(cairo_t* cr)
 	else if (mSHover || mSFocus)
 		aBack += 0.5;
 
-	if (aBack > 0)
+	if (mSOpened)
 	{
-		cairo_set_source_rgba(cr, 0.5, 0.5, 0.5, aBack);
+		if (mSFocus) {
+			cairo_set_source_rgba(cr, 0.92, 0.05, 0.05, 0.7);
+		} else {
+			cairo_set_source_rgba(cr, 0.92, 0.81, 0.58, 0.7);
+	    }
 		cairo_rectangle(cr, 0, 0, w, h);
 		cairo_fill(cr);
 	}
